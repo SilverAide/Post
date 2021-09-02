@@ -8,24 +8,26 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\damio\\.nuget\\packages\\": {}
+    "C:\\Users\\tdunb\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\damio\\Desktop\\SilverAide\\Post\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\tdunb\\OneDrive\\Desktop\\Personal Projects\\SilverAide\\Post\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\damio\\Desktop\\SilverAide\\Post\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\damio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\damio\\Desktop\\SilverAide\\Post\\Domain\\obj\\",
+      "projectPath": "C:\\Users\\tdunb\\OneDrive\\Desktop\\Personal Projects\\SilverAide\\Post\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\tdunb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tdunb\\OneDrive\\Desktop\\Personal Projects\\SilverAide\\Post\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\damio\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\tdunb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -58,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

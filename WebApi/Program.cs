@@ -6,6 +6,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+
+using DataAccess;
+using DataAccess.Repositories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace WebApi
 {
@@ -18,6 +23,14 @@ namespace WebApi
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureServices((hostContext, services) =>
+                {
+                    services.AddDbContext<PostDbContext>(options =>
+                    options.UseInMemoryDatabase("PostsDb")
+                    );
+                    services.AddTransient<PostRepository>();
+                    services.AddHostedService<PostWorker>();
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
