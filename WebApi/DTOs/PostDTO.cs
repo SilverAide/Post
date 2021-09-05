@@ -11,7 +11,7 @@ namespace WebApi.DTOs
     {
         public int Id { get; set; }
 #nullable enable
-        public IFormFile? Image { get; set; }
+        public IFormFile Image { get; set; }
 #nullable disable
         public string Description { get; set; }
         public DateTime Timestamp { get; set; }

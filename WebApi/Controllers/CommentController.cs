@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,48 +6,33 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 using Domain.Models;
-using DataAccess.Models;
+using WebApi.DTOs;
 using WebApi.Services;
 using Microsoft.AspNetCore.Http;
-using System.IO;
-using WebApi.DTOs;
-
 
 namespace WebApi.Controllers
 {
     [ApiController]
-    [Route("api/posts")]
-    public class PostController : ControllerBase
+    [Route("api/comments")]
+    public class CommentController : ControllerBase
     {
 
-        private readonly PostService _service;
-        private readonly ILogger<PostController> _logger;
+        private readonly CommentService _service;
+        private readonly ILogger<CommentController> _logger;
 
-        public PostController(PostService service, ILogger<PostController> logger)
+        public CommentController(CommentService service, ILogger<CommentController> logger)
         {
             _service = service;
             _logger = logger;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreatePost([FromForm]PostDTO incomingpost)
+        public async Task<IActionResult> CreateComment([FromForm] Comment comment)
         {
             try
             {
-                DataAccess.Models.Post post;
-                 using(var ms = new MemoryStream())
-            {
-                incomingpost.Image.CopyTo(ms);
-                var fileBytes = ms.ToArray();
-                 post = new DataAccess.Models.Post(){
-                    Description = incomingpost.Description,
-                    Image = fileBytes,
-                    Timestamp = incomingpost.Timestamp
-                };
-
-            }
-                await _service.CreatePost(post);
-                return CreatedAtAction("CreatePost", post);
+                await _service.CreateComment(comment);
+                return CreatedAtAction("CreateComment", comment);
             }
             catch (Exception e)
             {
@@ -57,26 +42,27 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPostById(int id)
+        public async Task<IActionResult> GetCommentById(int id)
         {
             try
             {
-                var result = await _service.GetPostById(id);
+                var result = await _service.GetCommentById(id);
                 return Ok(result);
             }
             catch (Exception e)
             {
                 _logger.LogInformation(e.Message, e);
+                throw new ArgumentException(e.Message);
                 return BadRequest();
             }
         }
 
         [HttpGet("all")]
-        public async Task<IActionResult> GetAllPosts()
+        public async Task<IActionResult> GetAllComments()
         {
             try
             {
-                var result = await _service.GetAllPosts();
+                var result = await _service.GetAllComments();
                 return Ok(result);
             }
             catch (Exception e)
@@ -87,11 +73,11 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeletePost(int id)
+        public async Task<IActionResult> DeleteComment(int id)
         {
             try
             {
-                await _service.DeletePost(id);
+                await _service.DeleteComment(id);
                 return Ok();
             }
             catch (Exception e)

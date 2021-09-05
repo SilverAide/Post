@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 using DataAccess.Repositories;
 using Domain.Models;
 using WebApi.DTOs;
+using DataAccess.Models;
+using DataAccess.Mappers;
+
+
 
 namespace WebApi.Services
 {
@@ -20,22 +24,17 @@ namespace WebApi.Services
             _repo = repo;
         }
 
-        public async Task CreatePost(PostDTO post)
+        public async Task CreatePost(DataAccess.Models.Post post)
         {
             if (post == null || post.Description == null)
             {
                 throw new ArgumentException("Invalid post format", nameof(post));
             }
-            using(var ms = new MemoryStream())
-            {
-                post.Image.CopyTo(ms);
-                var fileBytes = ms.ToArray();
-                Post newPost = new Post(post.Description, fileBytes);
-                await _repo.CreatePost(newPost);
-            }
+                await _repo.CreatePost(post.ToDomain());
+        
         }
 
-        public async Task<Post> GetPostById(int id)
+        public async Task<Domain.Models.Post> GetPostById(int id)
         {
             if (id < 1)
             {
@@ -44,7 +43,7 @@ namespace WebApi.Services
             return await _repo.GetPostById(id);
         }
 
-        public async Task<List<Post>> GetAllPosts()
+        public async Task<IEnumerable<Domain.Models.Post>> GetAllPosts()
         {
             return await _repo.GetAllPosts();
         }

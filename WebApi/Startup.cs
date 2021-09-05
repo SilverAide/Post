@@ -37,7 +37,9 @@ namespace WebApi
                 options.UseInMemoryDatabase("PostsDb");
             });
             services.AddScoped<PostRepository>();
+            services.AddScoped<CommentRepository>();
             services.AddScoped<PostService>();
+            services.AddScoped<CommentService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
