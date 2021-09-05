@@ -1,35 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tdunb\\OneDrive\\Desktop\\Personal Projects\\SilverAide\\Post\\DataAccess\\DataAccess.csproj": {}
+    "C:\\Users\\damio\\Desktop\\SilverAide\\Post\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tdunb\\OneDrive\\Desktop\\Personal Projects\\SilverAide\\Post\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\damio\\Desktop\\SilverAide\\Post\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tdunb\\OneDrive\\Desktop\\Personal Projects\\SilverAide\\Post\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\damio\\Desktop\\SilverAide\\Post\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\tdunb\\OneDrive\\Desktop\\Personal Projects\\SilverAide\\Post\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\tdunb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tdunb\\OneDrive\\Desktop\\Personal Projects\\SilverAide\\Post\\DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\damio\\Desktop\\SilverAide\\Post\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\damio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\damio\\Desktop\\SilverAide\\Post\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tdunb\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\damio\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\tdunb\\OneDrive\\Desktop\\Personal Projects\\SilverAide\\Post\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\tdunb\\OneDrive\\Desktop\\Personal Projects\\SilverAide\\Post\\Domain\\Domain.csproj"
+              "C:\\Users\\damio\\Desktop\\SilverAide\\Post\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\damio\\Desktop\\SilverAide\\Post\\Domain\\Domain.csproj"
               }
             }
           }
@@ -64,28 +62,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\tdunb\\OneDrive\\Desktop\\Personal Projects\\SilverAide\\Post\\Domain\\Domain.csproj": {
+    "C:\\Users\\damio\\Desktop\\SilverAide\\Post\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tdunb\\OneDrive\\Desktop\\Personal Projects\\SilverAide\\Post\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\damio\\Desktop\\SilverAide\\Post\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\tdunb\\OneDrive\\Desktop\\Personal Projects\\SilverAide\\Post\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\tdunb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tdunb\\OneDrive\\Desktop\\Personal Projects\\SilverAide\\Post\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\damio\\Desktop\\SilverAide\\Post\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\damio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\damio\\Desktop\\SilverAide\\Post\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tdunb\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\damio\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -118,7 +114,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

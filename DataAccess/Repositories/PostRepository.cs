@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 using Domain.Models;
+using DataAccess.Mappers;
+
 
 namespace DataAccess.Repositories
 {
@@ -21,8 +23,10 @@ namespace DataAccess.Repositories
 
         public async Task CreatePost(Post post)
         {
-            await _context.Posts.AddAsync(post);
+            var postDb = post.ToDataAccess();
+            await _context.Posts.AddAsync(postDb);
             await _context.SaveChangesAsync();
+            
         }
 
         public async Task<Post> GetPostById(int id)
@@ -30,16 +34,18 @@ namespace DataAccess.Repositories
             var query = await _context.Posts.FindAsync(id);
             if (query != null)
             {
-                return query;
+                return query.ToDomain();
             }
             throw new ArgumentException("Couldn't find post with that Id", nameof(id));
         }
 
-        public async Task<List<Post>> GetAllPosts()
+        public async Task<IEnumerable<Post>> GetAllPosts()
         {
             if (_context.Posts.Count() > 0)
             {
-                return await _context.Posts.ToListAsync();
+            
+                var posts = await _context.Posts.Include(c => c.Comments).ToListAsync();
+                return posts.Select(p => p.ToDomain());
             }
             return new List<Post>();
         }
@@ -49,6 +55,7 @@ namespace DataAccess.Repositories
             var query = await _context.Posts.FindAsync(id);
             if (query != null)
             {
+                
                 _context.Posts.Remove(query);
                 await _context.SaveChangesAsync();
             }
