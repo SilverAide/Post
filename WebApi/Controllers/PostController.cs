@@ -11,10 +11,11 @@ using WebApi.Services;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using WebApi.DTOs;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApi.Controllers
 {
+
     [ApiController]
     [Route("api/posts")]
     public class PostController : ControllerBase
@@ -30,22 +31,23 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreatePost([FromForm]PostDTO incomingpost)
+        public async Task<IActionResult> CreatePost([FromForm] PostDTO incomingpost)
         {
             try
             {
                 DataAccess.Models.Post post;
-                 using(var ms = new MemoryStream())
-            {
-                incomingpost.Image.CopyTo(ms);
-                var fileBytes = ms.ToArray();
-                 post = new DataAccess.Models.Post(){
-                    Description = incomingpost.Description,
-                    Image = fileBytes,
-                    Timestamp = incomingpost.Timestamp
-                };
+                using (var ms = new MemoryStream())
+                {
+                    incomingpost.Image.CopyTo(ms);
+                    var fileBytes = ms.ToArray();
+                    post = new DataAccess.Models.Post()
+                    {
+                        Description = incomingpost.Description,
+                        Image = fileBytes,
+                        Timestamp = incomingpost.Timestamp
+                    };
 
-            }
+                }
                 await _service.CreatePost(post);
                 return CreatedAtAction("CreatePost", post);
             }
@@ -55,7 +57,7 @@ namespace WebApi.Controllers
                 return BadRequest();
             }
         }
-
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetPostById(int id)
         {

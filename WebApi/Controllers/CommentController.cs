@@ -52,7 +52,6 @@ namespace WebApi.Controllers
             catch (Exception e)
             {
                 _logger.LogInformation(e.Message, e);
-                throw new ArgumentException(e.Message);
                 return BadRequest();
             }
         }
