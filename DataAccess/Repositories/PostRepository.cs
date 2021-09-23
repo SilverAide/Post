@@ -26,24 +26,24 @@ namespace DataAccess.Repositories
             var postDb = post.ToDataAccess();
             await _context.Posts.AddAsync(postDb);
             await _context.SaveChangesAsync();
-            
+
         }
 
         public async Task<Post> GetPostById(int id)
         {
-            var query = await _context.Posts.FindAsync(id);
-            if (query != null)
-            {
-                return query.ToDomain();
-            }
-            throw new ArgumentException("Couldn't find post with that Id", nameof(id));
+            var post = (await _context.Posts
+
+                       .Include(p => p.Comments)
+
+                       .FirstOrDefaultAsync(b => b.PostId == id)).ToDomain();
+            return post;
         }
 
         public async Task<IEnumerable<Post>> GetAllPosts()
         {
             if (_context.Posts.Count() > 0)
             {
-            
+
                 var posts = await _context.Posts.Include(c => c.Comments).ToListAsync();
                 return posts.Select(p => p.ToDomain());
             }
@@ -55,7 +55,7 @@ namespace DataAccess.Repositories
             var query = await _context.Posts.FindAsync(id);
             if (query != null)
             {
-                
+
                 _context.Posts.Remove(query);
                 await _context.SaveChangesAsync();
             }
